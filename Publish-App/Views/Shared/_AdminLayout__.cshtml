@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>@ViewBag.Title</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/theme-2/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/Content/theme-2/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="~/Content/theme-2/css/zabuto_calendar.css">*@
+    @*<link rel="stylesheet" type="text/css" href="~/Content/theme-2/js/gritter/css/jquery.gritter.css" />*@
+    @*<link rel="stylesheet" type="text/css" href="~/Content/theme-2/lineicons/style.css">*@
+
+    <!-- Custom styles for this template -->
+    <link href="/Content/theme-2/css/style.css" rel="stylesheet">
+    <link href="/Content/theme-2/css/style-responsive.css" rel="stylesheet">
+    <link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <section id="container">
+
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                @Html.Partial("_Menu","Admin")
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="~/User/login">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        @RenderBody()
+        <div id="loadingModal" style="display:none">
+            <div>Loading.............</div>
+        </div>
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                <div id="fakeLoader"></div>
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> - Ziaul Hasan
+                <a href="index.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/Content/theme-2/js/jquery.js"></script>
+    <script src="/Content/theme-2/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.validate.js"></script>
+    <script src="~/Content/js/application-master.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

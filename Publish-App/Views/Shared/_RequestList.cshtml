@@ -1,0 +1,49 @@
+﻿@model System.Data.DataSet
+@using System.Data
+@using System.Text.RegularExpressions;
+@using AS.MiddleLayer;
+@{ Layout = null;}
+<table id="appRequests">
+    <thead>
+        <tr>
+            @foreach (DataColumn dcItem in Model.Tables[0].Columns)
+            {
+                var r = new Regex(@"
+                (?<=[A-Z])(?=[A-Z][a-z]) |
+                 (?<=[^A-Z])(?=[A-Z]) |
+                 (?<=[A-Za-z])(?=[^A-Za-z])", RegexOptions.IgnorePatternWhitespace);
+
+
+                string s = dcItem.ColumnName;
+                <text> @Html.Raw("<th>" + r.Replace(s, " ") + "</th>")</text>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (DataRow item in Model.Tables[0].Rows)
+            {
+                <tr>
+                    @foreach (DataColumn dcItem in Model.Tables[0].Columns)
+                    {
+                        if (dcItem.ColumnName.ToLower().Equals("appointmentstatusid"))
+                        {
+                            var dtMaster = (new BussinessLayer()).LoadMasterAppointmentStatus(null).RetrunData.Tables[0].AsEnumerable().
+                                Select(m => new
+                                {
+                                    ID = m.Field<Int64>("ID"),
+                                    StatusName = m.Field<string>("StatusName")
+                                }).ToList();
+                            var sList = new SelectList(dtMaster, "ID", "StatusName", item[dcItem.ColumnName].ToString());
+                            <text> @Html.Raw("<td class='"+ dcItem.ColumnName + "'>" + Html.DropDownList(dcItem.ColumnName, sList,new { @class="updateStatus"}) + "</td>")</text>
+                        }
+                        else
+                        {
+                            <text> @Html.Raw("<td class='" + dcItem.ColumnName + "'>" + item[dcItem.ColumnName].ToString() + "</td>")</text>
+                        }
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

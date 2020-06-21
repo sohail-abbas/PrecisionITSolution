@@ -1,0 +1,77 @@
+﻿@model System.Data.DataSet
+@using AS.MiddleLayer
+@using System.Data
+@{ ViewBag.Title = "Appointment Request List"; ViewBag.ActiveClass = "appointment";}
+<style type="text/css">
+    .mt {
+        margin-top: 65px;
+    }
+</style>
+
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-40">
+            <!-- Begin Sidebar Menu -->
+            <div class="col-md-3">
+                <ul class="list-group sidebar-nav" id="status-nav">
+                    @{
+                        var dtMaster = (new BussinessLayer()).LoadMasterAppointmentStatus(null).RetrunData.Tables[0];
+                        foreach (DataRow drItem in dtMaster.Rows)
+                        {
+                            if (@drItem["ID"].ToString() == "1")
+                            {
+                                @*<li class='active'><a data-id="@drItem["ID"].ToString()">@drItem["StatusName"].ToString()</a></li>*@
+                                <li class="list-group-item active">
+                                    <a data-id="@drItem["ID"].ToString()">@drItem["StatusName"].ToString()</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="list-group-item">
+                                    <a data-id="@drItem["ID"].ToString()">@drItem["StatusName"].ToString()</a>
+                                </li>
+                                @*<li><a data-id="@drItem["ID"].ToString()">@drItem["StatusName"].ToString()</a></li>*@
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+            <!-- End Sidebar Menu -->
+            <div class="col-md-9" id="loadList">
+                @Html.Partial("_RequestList", Model)
+            </div>
+        </div>
+    </div>
+</div>
+@*<section class="wrapper">
+    <div class="row mt">
+        <div class="col-md-12">
+            <div class="content-panel">
+                <ul class="nav nav-tabs">
+                    @{
+                        var dtMaster = (new BussinessLayer()).LoadMasterAppointmentStatus(null).RetrunData.Tables[0];
+                        foreach (DataRow drItem in dtMaster.Rows)
+                        {
+                            if (@drItem["ID"].ToString() == "1")
+                            {
+                                <li class='active'><a data-id="@drItem["ID"].ToString()">@drItem["StatusName"].ToString()</a></li>
+                            }
+                            else
+                            {
+                                <li><a data-id="@drItem["ID"].ToString()">@drItem["StatusName"].ToString()</a></li>
+                            }
+                        }
+                    }
+                </ul>
+                <div id="loadList">
+                    @Html.Partial("_RequestList", Model)
+                </div>
+            </div><!-- /content-panel -->
+        </div><!-- /col-md-12 -->
+    </div>
+    <div id="s"></div>
+</section>*@
+@section scripts{
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/js/admin-appointment.js"></script>
+}

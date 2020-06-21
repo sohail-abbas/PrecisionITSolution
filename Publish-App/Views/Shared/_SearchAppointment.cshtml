@@ -1,0 +1,39 @@
+﻿@using System.Data
+@model DataSet
+    @{ Layout = null;}
+
+@if (Model != null)
+            {
+    <div class="login-wrap">
+        <table class="table table-striped table-advance table-hover">
+            <thead>
+                <tr>
+                    <th><i>Appointment ID</i></th>
+                    <th><i>Customer Name</i></th>
+                    <th><i>Appointment</i></th>
+                    <th><i>Status</i></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow drItem in Model.Tables[0].Rows)
+                    {
+                    <tr>
+                        <td>@drItem["AppointmentID"].ToString()</td>
+                        <td>@drItem["Name"].ToString()</td>
+                        <td>@drItem["AppointmentDateTime"].ToString()<br />(@drItem["SystemName"].ToString())</td>
+                        <td>@drItem["StatusName"].ToString()</td>
+                    </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" style="text-align:center">No Record or Appointment Found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

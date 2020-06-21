@@ -1,0 +1,90 @@
+﻿@using System.Data
+@model DataSet
+@{ ViewBag.Title = "Search Appointment & Status"; ViewBag.ActiveClass = "appointment";}
+<style type="text/css">
+    .other, .other-1 {
+        width: 49%;
+        float: left;
+    }
+
+    .other-1 {
+        width: 49.5%;
+        margin-left: 1%;
+    }
+
+    .claer {
+        clear: both;
+    }
+
+    .has-error {
+        color: #b94a48;
+        background-color: #f2dede;
+        border-color: #b94a48;
+        border: 1px solid;
+    }
+
+    .has-success .input-group-addon {
+        color: #468847;
+        background-color: #dff0d8;
+        border-color: #468847;
+        border: 1px solid;
+    }
+
+    .heading {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+</style>
+
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+            <!-- Main Column -->
+            <div class="col-md-12">
+                <!-- Main Content -->
+                <div class="headline">
+                    <h2>Search Appointment & Status</h2>
+                </div>
+                <p>
+                    You can track your appointment status here.
+                </p>
+                <br>
+                <!-- Search Form -->
+                <form class="form-login" id="requestForm">
+                    @*<h2 class="form-login-heading">
+                        @Html.Partial("_Menu")Search Appointment Request
+                    </h2>*@
+					<div class="row margin-bottom-5">
+						<div class="login-wrap col-md-8 animate fadeInLeft">
+							<p class="heading">By Contact Details
+							<input type="text" class="form-control" placeholder="Phone Number" name="PhoneNumber" id="PhoneNumber" autofocus></p>
+							<br />
+							<p class="heading">OR By Appointment Details
+							<input type="text" class="form-control" placeholder="Appointment ID" name="AppointmentID"></p>
+							<div class="claer"></div>
+							<br />
+							<p class="pull-right">
+								<button type="submit" id="request" class="btn btn-warning">Search</button>
+							</p>
+						</div>
+						<div class="col-md-4 pics-details">
+							<figure>                            
+								<img src="~/Content/theme-3/img/theteam/image4.jpg" alt="image4">                            
+							</figure>
+						</div>
+					</div>
+                    <div id="search">
+                    </div>
+                </form>
+                <!-- End Search Form -->
+                <!-- End Main Content -->
+            </div>
+            <!-- End Main Column -->
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Content/js/search-appointment.js"></script>
+}

@@ -1,0 +1,1 @@
+cscript //nologo C:\Others\PrecisionWebsite\Sendmail\sendmail.vbs

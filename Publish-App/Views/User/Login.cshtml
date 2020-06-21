@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Login"; ViewBag.ActiveClass = "login";
+}
+<style type="text/css">
+    .has-error {
+        color: #b94a48;
+        background-color: #f2dede;
+        border-color: #b94a48;
+        border: 1px solid;
+    }
+
+    .has-success .input-group-addon {
+        color: #468847;
+        background-color: #dff0d8;
+        border-color: #468847;
+        border: 1px solid;
+    }
+</style>
+
+<div id="content">
+    <div class="container background-white">
+        <div class="container">
+            <div class="row margin-vert-30">
+                <!-- Login Box -->
+                <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
+                    @using (Html.BeginForm("Login", "User",
+    new { ReturnUrl = ViewBag.ReturnUrl },
+    FormMethod.Post, new { @class = "login-page" }))
+                    {
+                        if (ViewBag.ErrorMassage != null)
+                        {
+                            <label style="color:red"> @ViewBag.ErrorMassage </label>
+                        }
+                        @*<h2 class="form-login-heading">@Html.Partial("_Menu") Login</h2>*@
+                        <div class="login-header margin-bottom-30">
+                            <h2>Login</h2>
+                        </div>
+                        <div class="login-wrap">
+                            <div class="input-group margin-bottom-20">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Phone Number" name="PhoneNumber" autofocus>
+                            </div>
+                            <div class="input-group margin-bottom-20">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Email Address" name="EmailID" id="EmailID">
+                            </div>
+                            <p style="text-align:center;font-weight:bold;"><i>OR</i></p>
+                            <div class="input-group margin-bottom-20">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Alternate Phone Number" name="AltPhoneNumber" id="AltPhoneNumber">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary pull-right" type="submit" id="request"><i class="fa fa-lock"></i> Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- End Login Box -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Content/js/user-login.js"></script>}
+

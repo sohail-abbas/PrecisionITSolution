@@ -1,0 +1,36 @@
+﻿@{ Layout = null;}
+<li>
+    @if (ViewBag.ActiveClass == "home")
+    {
+        <a href="~/Home/Index" class="fa-home active">Home</a>
+    }
+    else
+    {
+        <a href="~/Home/Index" class="fa-home">Home</a>
+    }
+</li>
+<li>
+    @if (ViewBag.ActiveClass == "about")
+    {
+        <a href="~/Home/About" class="fa-info-circle active">About</a>
+    }
+    else
+    {
+        <a href="~/Home/About" class="fa-info-circle">About</a>
+    }
+</li>
+<li>
+    @if (ViewBag.ActiveClass == "service")
+    {
+        <a href="~/Home/Service" class="fa-cogs active">Service</a>
+    }
+    else
+    {
+        <a href="~/Home/Service" class="fa-cogs">Service</a>
+    }
+    @*<ul>
+        <li>
+            <a href="~/Home/Clients">Clients</a>
+        </li>
+    </ul>*@
+</li>

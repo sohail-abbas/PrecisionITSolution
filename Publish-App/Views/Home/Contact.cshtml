@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    ViewBag.ActiveClass = "contact";
+}
+<style type="text/css">
+    .other, .other-1 {
+        width: 49%;
+        float: left;
+    }
+
+    .other-1 {
+        width: 49.5%;
+        margin-left: 1%;
+    }
+
+    .claer {
+        clear: both;
+    }
+
+    .has-error {
+        color: #b94a48;
+        background-color: #f2dede;
+        border-color: #b94a48;
+        border: 1px solid;
+    }
+
+    .has-success .input-group-addon {
+        color: #468847;
+        background-color: #dff0d8;
+        border-color: #468847;
+        border: 1px solid;
+    }
+
+    .heading {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+</style>
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+            <!-- Main Column -->
+            <div class="col-md-8">
+                <!-- Main Content -->
+                <div class="headline">
+                    <h2>Contact Form</h2>
+                </div>
+                <p class="text-justify">
+                    Let's talk..!!!
+					<br>​​Thanks for your interest in our services. Please fill out the email form, submit and we will get back to you soon.
+                </p>
+                <br>
+                <!-- Contact Form -->
+                <form id="contactUsForm">
+                    <label>Name</label>
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-8 col-md-offset-0">
+                            <input class="form-control" type="text" name="Name">
+                        </div>
+                    </div>
+                    <label>
+                        Email
+                        <span class="color-red">*</span>
+                    </label>
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-8 col-md-offset-0">
+                            <input class="form-control" type="email" name="EmailID">
+                        </div>
+                    </div>
+                    <label>Message</label>
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-8 col-md-offset-0">
+                            <textarea rows="8" class="form-control" name="Message" id="Message"></textarea>
+                        </div>
+                    </div>
+                    <p>
+                        <input type="submit" class="btn btn-primary" value="Send Message"/>
+                    </p>
+                </form>
+                <!-- End Contact Form -->
+                <!-- End Main Content -->
+            </div>
+            <!-- End Main Column -->
+            <!-- Side Column -->
+            <div class="col-md-4">
+                <!-- Recent Posts -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Contact Info</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-justify">You can also reach out to us through following channel</p>
+                        <ul class="list-unstyled">
+                            <li>
+                                <i class="fa-phone color-primary"></i>&nbsp;+91-9811557969<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91-9811961201
+                            </li>
+                            <li>
+                                <i class="fa-envelope color-primary"></i><a href = "mailto:sales@precisionitsolution.com">sales@precisionitsolution.com</a>
+                            </li>
+                            <li>
+                                <i class="fa-home color-primary"></i><a href="http://www.precisionitsolution.com">www.precisionitsolution.com</a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li>
+                                <strong class="color-primary">Monday - Friday: </strong>9:00 AM to 6:00 PM
+                            </li>
+                            <li>
+                                <strong class="color-primary">Saturday: </strong>9:00 AM to 3:00 PM
+                            </li>
+                            <li>
+                                <strong class="color-primary">Sunday: </strong>Closed
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End recent Posts -->
+                <!-- About -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">About</h3>
+                    </div>
+                    <div class="panel-body">
+						<a href="~/Appointment/AddRequest">
+							<img src="~/Content/theme-3/img/theteam/image1.jpg">
+						</a>
+                    </div>
+                </div>
+                <!-- End About -->
+            </div>
+            <!-- End Side Column -->
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="/" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                <h4 class="modal-title">Request Message</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <a data-dismiss="modal" class="btn btn-default" href="/">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+<a data-toggle="modal" href="login.html#myModal" style="display:none" id="showMessage"> Show Message</a>
+@section scripts{
+<script src="~/Content/js/contactus.js"></script>
+    }

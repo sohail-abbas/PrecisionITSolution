@@ -1,0 +1,65 @@
+﻿@{ Layout = null;}
+<li>
+    @if (ViewBag.ActiveClass == "appointment")
+    {
+        <span class="fa-calendar active">Service at Home</span>
+    }
+    else
+    {
+        <span class="fa-calendar ">Service at Home</span>
+    }
+    <ul>
+        <li>
+            <a href="~/Appointment/AddRequest">Book Appointment</a>
+        </li>
+        <li>
+            <a href="~/Appointment/SearchAppointment">Check Appointment Status</a>
+        </li>
+        @if (Request.Cookies["AdminLogin"] != null && ViewBag.IsLogin == null)
+        {
+            <li>
+                <a href="~/Admin/AppointmentRequests">Update Appointment Status</a>
+            </li>
+        }
+    </ul>
+</li>
+
+<li>
+    @if (ViewBag.ActiveClass == "career")
+    {
+        <a href="~/Home/Career" class="fa-group active">Career</a>
+    }
+    else
+    {
+        <a href="~/Home/Career" class="fa-group">Career</a>
+    }
+</li>
+<li>
+    @if (ViewBag.ActiveClass == "contact")
+    {
+        <a href="~/Home/Contact" class="fa-envelope active">Contact</a>
+    }
+    else
+    {
+        <a href="~/Home/Contact" class="fa-envelope">Contact</a>
+    }
+</li>
+@if (Request.Cookies["UserLogin"] != null && ViewBag.IsLogin == null)
+{
+    <li>
+        <a href="~/User/login">Logout</a>
+    </li>
+}
+else
+{
+    <li>
+        @if (ViewBag.ActiveClass == "login")
+        {
+            <a href="~/User/Login" class="fa-lock active">Login</a>
+        }
+        else
+        {
+            <a href="~/User/Login" class="fa-lock">Login</a>
+        }
+    </li>
+}

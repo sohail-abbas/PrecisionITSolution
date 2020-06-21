@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Title -->
+    <title>@ViewBag.Title</title>
+    <!-- Meta -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Favicon -->
+    @*<link href="favicon.ico" rel="shortcut icon" />*@
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="~/Content/theme-3/css/bootstrap.css" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/Content/theme-3/css/animate.css" />
+    <link rel="stylesheet" href="~/Content/theme-3/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/Content/theme-3/css/nexus.css" />
+    <link rel="stylesheet" href="~/Content/theme-3/css/responsive.css" />
+    <link rel="stylesheet" href="~/Content/theme-3/css/custom.css" />
+    <!-- Google Fonts-->
+    @*<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">*@
+    <link href="~/Content/css/jquery.datetimepicker.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="body-bg">
+        <!-- Phone/Email -->
+        <div id="pre-header" class="background-gray-lighter">
+            <div class="container no-padding">
+                <div class="row hidden-xs">
+                    <div class="col-sm-6 padding-vert-5">
+                        <strong class="fa-phone">Phone:</strong>&nbsp;+91-9811557969; +91-9811961201
+                    </div>
+                    <div class="col-sm-6 text-right padding-vert-5">
+                        <a href = "mailto:sales@precisionitsolution.com"><strong class="fa-envelope">Email:</strong>&nbsp;sales@precisionitsolution.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Phone/Email -->
+            <div id="header">
+                <div class="container">
+                    <div class="row" >
+                        <!-- Logo -->
+                        <div class="logo pull-left">
+                            <a href="~/Home/Index" title="">
+                                <img src="~/Content/theme-3/img/logo.png" alt="Logo" />
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+                </div>
+            </div>
+        <!-- Top Menu -->
+        <div id="hornav" class="bottom-border-shadow">
+            <div class="container no-padding border-bottom">
+                <div class="row">
+                    <div class="col-md-12 no-padding">
+                        <div class="visible-lg">
+                            <ul id="hornavmenu" class="nav navbar-nav">
+                                @*<li>
+                                    @if (ViewBag.ActiveClass == "home")
+                                    {
+                                        <a href="~/Home/Index" class="fa-home active">Home</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Home/Index" class="fa-home">Home</a>
+                                    }
+                                </li>
+                                <li>
+                                    @if (ViewBag.ActiveClass == "about")
+                                    {
+                                        <a href="~/Home/About" class="fa-info-circle active">About</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Home/About" class="fa-info-circle">About</a>
+                                    }
+                                </li>
+                                <li>
+                                    @if (ViewBag.ActiveClass == "career")
+                                    {
+                                        <a href="~/Home/Career" class="fa-group active">Career</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Home/Career" class="fa-group">Career</a>
+                                    }
+                                </li>
+                                <li>
+                                    @if (ViewBag.ActiveClass == "appointment")
+                                    {
+                                        <span class="fa-calendar active">Appointment</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="fa-calendar ">Appointment</span>
+                                    }
+                                    <ul>
+                                        <li>
+                                            <a href="~/Appointment/AddRequest">Book Appointment</a>
+                                        </li>
+                                        <li>
+                                            <a href="~/Appointment/SearchAppointment">Check Appointment Status</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    @if (ViewBag.ActiveClass == "service")
+                                    {
+                                        <a href="~/Home/Service" class="fa-cogs active">Service</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Home/Service" class="fa-cogs">Service</a>
+                                    }
+                                </li>
+                                <li>
+                                    @if (ViewBag.ActiveClass == "login")
+                                    {
+                                        <a href="~/User/Login" class="fa-lock active">Login</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/User/Login" class="fa-lock">Login</a>
+                                    }
+                                </li>*@
+                                @Html.Partial("~/Views/Shared/_MenuWithoutLogin.cshtml")
+                                @Html.Partial("~/Views/Shared/_MenuWithLogin.cshtml")
+                            </ul>
+                        </div>
+                    </div>
+                    @*<div class="col-md-4 no-padding">
+                        <ul class="social-icons pull-right">
+                            <li class="social-rss">
+                                <a href="#" target="_blank" title="RSS"></a>
+                            </li>
+                            <li class="social-twitter">
+                                <a href="#" target="_blank" title="Twitter"></a>
+                            </li>
+                            <li class="social-facebook">
+                                <a href="#" target="_blank" title="Facebook"></a>
+                            </li>
+                                            </ul>
+                                        </div>*@
+                </div>
+            </div>
+        </div>
+        <!-- End Top Menu -->
+        <!-- === END HEADER === -->
+        @RenderBody()
+        <div id="loadingModal" style="display:none">
+            <div>Loading.............</div>
+        </div>
+        <!-- === BEGIN FOOTER === -->
+        <div id="base">
+            <div class="container bottom-border padding-vert-30">
+                <div class="row">
+                    <!-- Disclaimer -->
+                    <div class="col-md-4">
+                        <h3 class="class margin-bottom-10">Disclaimer</h3>
+                        <p class="text-justify">All images on this domain are for presentation purposes only, intended to represent the service, and offering by Precision IT Solution.</p>
+                        <p class="text-justify">
+                            Most of the images used here are from
+                            <a href="http://www.google.com/" target="_blank">google.com</a>. Links are provided if you wish to purchase them from their copyright owners.
+                        </p>
+                    </div>
+                    <!-- End Disclaimer -->
+                    <!-- Contact Details -->
+                    <div class="col-md-4 margin-bottom-20">
+                        <h3 class="margin-bottom-10">Contact Details</h3>
+                        <p>
+                            <span class="fa-phone">Telephone:</span>+91-9811557969<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +91-9811961201
+                            <br>
+                            <span class="fa-envelope">Email:</span>
+                            <a href="mailto:sales@precisionitsolution.com">sales@precisionitsolution.com</a>
+                            <br>
+                            <span class="fa-link">Website:</span>
+                            <a href="http://www.precisionitsolution.com">www.precisionitsolution.com</a>
+                        </p>
+                        <p>
+                            <span class="fa-map-marker">Address:</span> D-13/1, First Floor,
+                            <br>A. F. Enclave - II, Jamia Nagar
+                            <br>Okhla, New Delhi - 110025
+                            <br>India
+                        </p>
+                    </div>
+                    <!-- End Contact Details -->
+                    <!-- Sample Menu -->
+                    <div class="col-md-4 margin-bottom-20">
+                        <h3 class="margin-bottom-10">Quick Link</h3>
+                        <ul class="menu">
+                            <li>
+                                <a class="fa-tasks" href="~/Home/About">Know about Us</a>
+                            </li>
+                            <li>
+                                <a class="fa-users" href="~/Home/Career">Work with Us</a>
+                            </li>
+                            <li>
+                                <a class="fa-signal" href="~/Home/Service">Service Info</a>
+                            </li>
+                            <li>
+                                <a class="fa-coffee" href="~/Appointment/AddRequest">Book an Appointment</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- End Sample Menu -->
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footer" class="background-grey">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Menu -->
+                    <div id="footermenu" class="col-md-4">
+                        <ul class="list-unstyled list-inline">
+							<li>
+                                    <a href="#">
+                                        <i class="fa-lg fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-lg fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-lg fa-facebook"></i>
+                                    </a>
+                             </li>
+							@*<li>
+                                <a href="#" target="_blank">Sample Link</a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">Sample Link</a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">Sample Link</a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">Sample Link</a>
+                            </li>*@
+                        </ul>
+                    </div>
+                    <!-- End Footer Menu -->
+                    <!-- Copyright -->
+					<div id="counter" class="col-md-4">
+						<div align=center><a href='http://www.precisionitsolution.com'>
+							<img src='http://www.counter12.com/img-ZAdA673xaYx342Cc-3.gif' border='0' alt='web counter free'></a><script type='text/javascript' src='http://www.counter12.com/ad.js?id=ZAdA673xaYx342Cc'></script>
+						</div>
+					</div>
+                    <div id="copyright" class="col-md-4">
+                        <p class="pull-right">(c) <script>
+                              document.write(new Date().getFullYear())</script> Precision IT Solution</p>
+                    </div>
+                    <!-- End Copyright -->
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="~/Content/theme-3/js/jquery.min.js"></script>
+        <script type="text/javascript" src="~/Content/theme-3/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Content/theme-3/js/scripts.js"></script>
+        <!-- Isotope - Portfolio Sorting -->
+        <script type="text/javascript" src="~/Content/theme-3/js/jquery.isotope.js"></script>
+        <!-- Mobile Menu - Slicknav -->
+        <script type="text/javascript" src="~/Content/theme-3/js/jquery.slicknav.js"></script>
+        <!-- Animate on Scroll-->
+        <script type="text/javascript" src="~/Content/theme-3/js/jquery.visible.js" charset="utf-8"></script>
+        <!-- Sticky Div -->
+        <script type="text/javascript" src="~/Content/theme-3/js/jquery.sticky.js" charset="utf-8"></script>
+        <!-- Slimbox2-->
+        <script type="text/javascript" src="~/Content/theme-3/js/slimbox2.js" charset="utf-8"></script>
+        <!-- Modernizr -->
+        <script src="~/Content/theme-3/js/modernizr.custom.js"></script>
+        <script src="~/Content/js/jquery.validate.js"></script>
+        <script src="~/Content/js/jquery.datetimepicker.js"></script>
+        <script src="~/Content/js/application-master.js"></script>
+        @RenderSection("scripts", required: false)
+</body>
+</html>

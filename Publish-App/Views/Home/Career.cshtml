@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "Career";
+    ViewBag.ActiveClass = "career";
+}
+<style type="text/css">
+    .claer {
+        clear: both;
+    }
+
+    .has-error {
+        color: #b94a48;
+        background-color: #f2dede;
+        border-color: #b94a48;
+        border: 1px solid;
+    }
+
+    .has-success .input-group-addon {
+        color: #468847;
+        background-color: #dff0d8;
+        border-color: #468847;
+        border: 1px solid;
+    }
+
+    .upload-file {
+        display: none;
+        font-size: 16pt;
+    }
+</style>
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+            <div class="col-md-12">
+                <h2 class="margin-bottom-5">Career</h2>
+                <div class="row margin-bottom-5">
+                    <div class="col-md-6 animate fadeInLeft">
+                        <p class="text-justify"><strong>Life at Precision</strong></p>
+                        <p class="text-justify">
+                            Precision believes that our employees are greatest assets for us. We value our employees not because of their intellectuality and proficiency but definitely for what they are as individual.
+                        </p>
+                        <p class="text-justify">
+                            Precision is equipped with latest technology and great work culture. We give full exposure to employee and allow them freedom to contribute their thoughts and innovation to help us grow together as a team. We work hard to live by set of examples aligned with the core values that inspire all and we definitely enjoy doing it.
+                        </p>
+                        <p class="text-justify">
+                            We always look for dynamic thinkers, innovators, challengers who can mark their difference and build extraordinary IT-Solutions. The ones who are smart, passionate and digitally motivated thinkers. If you're the one who can, then join us.
+                        </p>
+                        <p>
+                            <a class="btn btn-warning" href="#" id="btnOpening">View Current Openings</a>
+                        </p>
+                        <p id="openings" class="fadeInLeft" style="display:none">
+                           <b>Currently we dont have any opening, please upload your resume. We will get back up if there are any opening.</b>
+                        </p>
+                    </div>
+                    <!-- Resume Details -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 person-details margin-bottom-5">
+                        <figure>
+                            <figcaption>
+                                <h3 class="margin-bottom-5">
+                                    Upload Your Resume
+                                </h3>
+                                <p class="text-justify"><span>You can upload your latest CV here.</span></p>
+                                <div class="resume-wrap">
+                                    <form id="careerFrom">
+                                        <p class="heading">
+                                            Prefix: <i style="color:white">*</i>
+                                            <select class="form-control" name="Prefix">
+                                                <option value="Mr">Mr</option>
+                                                <option value="Miss">Miss</option>
+                                                <option value="Mrs">Mrs</option>
+                                            </select>
+                                        </p>
+                                        <p class="heading">
+                                            First Name: <i style="color:white">*</i>
+                                            <input type="text" class="form-control" placeholder="First Name" name="FirstName" id="FirstName" autofocus>
+                                        </p>
+                                        <p class="heading">
+                                            Last Name:<i style="color:white">*</i>
+                                            <input type="text" class="form-control" placeholder="Last Name" name="LastName" id="LastName">
+                                        </p>
+                                        <p class="heading">
+                                            Phone Number:<i style="color:white">*</i>
+                                            <input type="text" class="form-control" placeholder="Phone Number" name="PhoneNo" id="PhoneNo">
+                                        </p>
+                                        <p class="heading">
+                                            E - Mail:<i style="color:white">*</i>
+                                            <input type="email" class="form-control" placeholder="Email Address" name="EmailID" id="EmailID">
+                                        </p>
+                                        <p class="heading">
+                                            Attachment(s):<i style="color:white">*</i>
+                                            <input type="file" name="attachment[]" id="attachment" class="multi" accept="pdf|doc|docx" maxlength="3" />
+                                            <i>Allowed extensions: pdf,doc,docx</i>
+                                            <input type="hidden" name="FilePath" id="FilePath" value="0" />
+                                        </p>
+                                        <p class="upload-file">file uploaded successfully &#9989;</p>
+                                        <p>
+                                            <button type="submit" id="request" class="btn btn-warning">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                        </p>
+                                    </form>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <hr class="margin-top-10">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Model Pupup-->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="/" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                <h4 class="modal-title">Request Message</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <a data-dismiss="modal" class="btn btn-default" href="/">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="loadingModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="hide close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Loading.....</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default hide" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal -->
+<a data-toggle="modal" href="login.html#myModal" style="display:none" id="showMessage"> Show Message</a>
+<a data-toggle="modal" href="login.html#loadingModal" class="hide" id="loadingMessage"> Loading</a>
+@section scripts{
+    <script src="~/Content/js/career.js"></script>
+}

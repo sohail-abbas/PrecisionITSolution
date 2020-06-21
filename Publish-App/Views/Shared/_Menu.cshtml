@@ -1,0 +1,52 @@
+﻿@model string
+@{ Layout = null;}
+<style type="text/css">
+    ul.top-menu {
+        float: left;
+    }
+
+    .dropdown-menu.extended {
+        top: 30px;
+    }
+</style>
+<ul class="nav top-menu">
+    <!-- settings start -->
+    <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+            <i class="fa fa-tasks"></i>
+        </a>
+        <ul class="dropdown-menu extended tasks-bar">
+            @if (Model!=null && Model.ToString().ToLower() == "admin")
+            {
+                <li>
+                    <a href="~/Admin/AppointmentRequests">
+                        <div class="task-info">
+                            <div class="desc">List Appointments</div>
+                        </div>
+                    </a>
+                </li>
+            }
+            <li>
+                <a href="~/Appointment/AddRequest">
+                    <div class="task-info">
+                        <div class="desc">New Appointment</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="~/Appointment/SearchAppointment">
+                    <div class="task-info">
+                        <div class="desc">Appointment Status</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="~/User/Login">
+                    <div class="task-info">
+                        <div class="desc">Login</div>
+                    </div>
+                </a>
+            </li>			
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,21 @@
+1. Even if the appointment status is completed, system is not allowing to request another appointment.
+	-- We need to add a check to see if the appointment status is completed or not.
+
+2. Login functionality is not working
+	-- We need to implement login functionality. 
+
+
+@3. Appointment can be booked of past time.
+	-- We need to check the timing of the appointment system should not be less than now()
+
+@4. Alt Phone Number is mandatory
+	-- This should not be a mandatory field
+
+@5. Alt Phone Number and Phone Number is asking to be different, which is wrong.
+	-- This can be same as well 
+
+6. User is not allowed to enter with different phone number but existing email.
+	-- If the existing email/phone is used and it has appointment which is complete then also it should allow but proper message should be displayed to user. 
+
+7. In Search appoint and status window it is searching for invalid phone number as well.	
+	-- There should be a check on UI itself that no invalid phone number should be allowed.

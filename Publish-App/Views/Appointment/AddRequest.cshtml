@@ -1,0 +1,143 @@
+﻿@{ ViewBag.Title = "Add Appointment"; ViewBag.ActiveClass = "appointment";}
+<style type="text/css">
+    .other, .other-1 {
+        width: 49%;
+        float: left;
+    }
+
+    .other-1 {
+        width: 49.5%;
+        margin-left: 1%;
+    }
+
+    .form-login {
+        /*margin: 10px auto 0;
+        max-width: 450px;*/
+    }
+
+    .claer {
+        clear: both;
+    }
+
+    .has-error {
+        color: #b94a48;
+        background-color: #f2dede;
+        border-color: #b94a48;
+        border: 1px solid;
+    }
+
+    .has-success .input-group-addon {
+        color: #468847;
+        background-color: #dff0d8;
+        border-color: #468847;
+        border: 1px solid;
+    }
+
+    .heading {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        cursor:default;
+    }
+</style>
+
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+            <!-- Main Column -->
+            <div class="col-md-12">
+                <!-- Main Content -->
+                <div class="headline">
+                    <h2>Booking Appointment</h2>
+                </div>
+                <p>
+                    Looking for Laptop/Desktop repair service at your home or office. Feel free to book an appointment through our portal. One of our correspondent will visit you and provide the service at your comfort place.
+                </p>
+                <br>
+                <!-- Contact Form -->
+                <form class="form-login" id="requestForm">
+
+                    @*<h2 class="form-login-heading">
+                        @Html.Partial("_Menu") Appointment Request
+                    </h2>*@
+                    <div class="login-wrap">
+                        <p class="heading">Contact Details<i style="color:red">*</i></p>
+                        <input type="text" class="form-control other" placeholder="Phone Number" name="PhoneNumber" id="PhoneNumber" autofocus>
+                        <input type="text" class="form-control other-1" placeholder="Alt Phone Number" name="AltPhoneNumber">
+                        <div class="claer"></div>
+                        <br />
+                        <input type="text" class="form-control" placeholder="Email Address" name="EmailID">
+                        <p class="heading">Personal Details<i style="color:red">*</i></p>
+                        <input type="text" class="form-control" placeholder="Name" name="Name">
+                        <br />
+                        <textarea rows="3" class="form-control" name="Address" placeholder="Addresss"></textarea>
+                        <p class="heading">System Problem<i style="color:red">*</i></p>
+                        <select class="form-control other" name="SystemTypeID">
+                            <option value="0">Select System Type</option>
+                            <option value="1">Computer</option>
+                            <option value="2">Laptop</option>
+                        </select>
+                        <input type="text" class="form-control other-1" placeholder="Appointment DateTime" name="AppointmentDateTime" id="AppointmentDateTime" readonly="readonly">
+                        <div class="claer"></div>
+                        <br />
+                        <textarea cols="50" rows="3" class="form-control" name="Problem" placeholder="System Problem"></textarea>
+                        <br />
+						
+                        <p class = "pull-right">
+                            <button type="submit" id="request" class="btn btn-primary">Submit</button>
+                        </p>
+                    </div>
+
+                    <!-- Modal -->
+                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="/" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                                    <h4 class="modal-title">Request Message</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a data-dismiss="modal" class="btn btn-default" href="/">Close</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="loadingModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="hide close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Loading.....</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button data-dismiss="modal" class="btn btn-default hide" type="button">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+                    <a data-toggle="modal" href="login.html#myModal" style="display:none" id="showMessage"> Show Message</a>
+                    <a data-toggle="modal" href="login.html#loadingModal" class="hide" id="loadingMessage"> Loading</a>
+                </form>
+                <!-- End Contact Form -->
+                <!-- End Main Content -->
+            </div>
+            <!-- End Main Column -->
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+    var startDate ='@DateTime.Now.ToString("yyyy/MM/dd")';
+    var endDate='@DateTime.Now.AddMonths(3).ToString("yyyy/MM/dd")';
+    </script>
+    <script src="~/Content/js/appointment.js"></script>
+}
